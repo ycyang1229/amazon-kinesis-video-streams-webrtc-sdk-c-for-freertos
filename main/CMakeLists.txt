@@ -34,32 +34,30 @@ idf_component_get_property(nvs_flash_lib nvs_flash COMPONENT_LIB)
 idf_component_get_property(mbedtls_lib mbedtls COMPONENT_LIB)
 
 add_definitions(-DKVS_PLAT_ESP_FREERTOS)
-
-message("############################## start libwebsockets ##############################")
-set(ESP_PLATFORM 1) 
-set(LWS_CTEST_INTERNET_AVAILABLE OFF CACHE BOOL "CTest will performs tests that need the Internet")
-set(LWS_WITH_MBEDTLS ON CACHE BOOL "Use mbedTLS (>=2.0) replacement for OpenSSL. When setting this, you also may need to specify LWS_MBEDTLS_LIBRARIES and LWS_MBEDTLS_INCLUDE_DIRS")
-set(LWS_WITH_SHARED OFF CACHE BOOL "Build the shared version of the library")
-set(LWS_WITH_ESP32 ON CACHE BOOL "Build for ESP32")
-set(LWS_PLAT_FREERTOS ON CACHE BOOL "Build for FreeRTOS")
-set(LWS_WITHOUT_SERVER ON CACHE BOOL "Don't build the server part of the library")
-set(LWS_WITHOUT_TESTAPPS ON CACHE BOOL "Don't build the libwebsocket-test-apps")
-set(LWS_WITHOUT_TEST_SERVER ON CACHE BOOL "Don't build the test server")
-set(LWS_WITHOUT_TEST_SERVER_EXTPOLL ON CACHE BOOL "Don't build the test server version that uses external poll")
-set(LWS_WITHOUT_TEST_PING ON CACHE BOOL "Don't build the ping test application")
-set(LWS_WITHOUT_TEST_CLIENT ON CACHE BOOL "Don't build the client test application")
-set(LWS_WITH_EXPORT_LWSTARGETS OFF CACHE BOOL "Export libwebsockets CMake targets.  Disable if they conflict with an outer cmake project.")
-set(LWS_CLIENT_HTTP_PROXYING OFF CACHE BOOL "Support external http proxies for client connections")
-
-add_subdirectory(lib/libwebsockets)
-set_property(TARGET websockets APPEND PROPERTY LINK_LIBRARIES
+message("############################## start llhttp ##############################")
+add_subdirectory(lib/libllhttp)
+set_property(TARGET llhttp APPEND PROPERTY LINK_LIBRARIES
         ${nvs_flash_lib}
 	${mbedtls_lib})
-set_property(TARGET websockets APPEND PROPERTY INTERFACE_LINK_LIBRARIES
+set_property(TARGET llhttp APPEND PROPERTY INTERFACE_LINK_LIBRARIES
         ${nvs_flash_lib}
 	${mbedtls_lib})
-target_link_libraries(${COMPONENT_LIB} PUBLIC websockets)
-set(KVS_LIBWEBSOCKETS_INCLUDE_DIRS "${CMAKE_BINARY_DIR}/esp-idf/main/lib/libwebsockets/include" "${LIB_SOURCE_DIR}/libwebsockets/include")
+target_link_libraries(${COMPONENT_LIB} PUBLIC llhttp)
+set(KVS_LIBLLHTTP_INCLUDE_DIRS "${CMAKE_BINARY_DIR}/esp-idf/main/lib/libllhttp/include" "${LIB_SOURCE_DIR}/libllhttp/include")
+
+
+message("############################## start wslay ##############################")
+
+add_subdirectory(lib/private-wslay)
+set_property(TARGET wslay APPEND PROPERTY LINK_LIBRARIES
+        ${nvs_flash_lib}
+	${mbedtls_lib})
+set_property(TARGET wslay APPEND PROPERTY INTERFACE_LINK_LIBRARIES
+        ${nvs_flash_lib}
+	${mbedtls_lib})
+target_link_libraries(${COMPONENT_LIB} PUBLIC wslay)
+set(KVS_LIBWSLAY_INCLUDE_DIRS "${LIB_SOURCE_DIR}/private-wslay/lib/includes" "${CMAKE_BINARY_DIR}/esp-idf/main/lib/private-wslay/lib/includes")
+message("KVS_LIBWSLAY_INCLUDE_DIRS:${KVS_LIBWSLAY_INCLUDE_DIRS}")
 
 message("############################## start srtp ##############################")
 set(KVS_PLAT_ESP_FREERTOS ON CACHE BOOL "Build for ESP FreeRTOS")
@@ -82,39 +80,42 @@ message("############################## start producer c #######################
 set(BUILD_DEPENDENCIES OFF CACHE BOOL "Whether or not to build depending libraries from source")
 set(USE_OPENSSL OFF CACHE BOOL "Use openssl as crypto library")
 set(USE_MBEDTLS ON CACHE BOOL "Use openssl as crypto library")
-set(BUILD_COMMON_ONLY OFF CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
-set(BUILD_COMMON_LWS ON CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
+set(BUILD_COMMON_ONLY ON CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
+set(BUILD_COMMON_LWS OFF CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
 set(BUILD_COMMON_CURL OFF CACHE BOOL "Whether or not to build ProducerC curl common library")
 set(BUILD_KVSPIC OFF CACHE BOOL "Whether or not to build the part of kvs pic")
 set(KVS_PLAT_ESP_FREERTOS ON CACHE BOOL "Build for ESP FreeRTOS")
-set(OPEN_SRC_INCLUDE_DIRS "${OPEN_SRC_INCLUDE_DIRS}" "${KVS_LIBWEBSOCKETS_INCLUDE_DIRS}")
+set(OPEN_SRC_INCLUDE_DIRS "${OPEN_SRC_INCLUDE_DIRS}")
+
 add_subdirectory(lib/amazon-kinesis-video-streams-producer-c)
 
-set_property(TARGET kvsCommonLws APPEND PROPERTY LINK_LIBRARIES kvspicUtils websockets ${mbedtls_lib})
-set_property(TARGET kvsCommonLws APPEND PROPERTY INTERFACE_LINK_LIBRARIES kvspicUtils websockets ${mbedtls_lib})
-target_link_libraries(${COMPONENT_LIB} PUBLIC kvsCommonLws)
+set_property(TARGET kvsCommon APPEND PROPERTY LINK_LIBRARIES kvspicUtils ${mbedtls_lib})
+set_property(TARGET kvsCommon APPEND PROPERTY INTERFACE_LINK_LIBRARIES kvspicUtils ${mbedtls_lib})
+target_link_libraries(${COMPONENT_LIB} PUBLIC kvsCommon)
 
 message("############################## start webrtc ##############################")
 set(BUILD_DEPENDENCIES OFF CACHE BOOL "Whether or not to build depending libraries from source")
 set(BUILD_STATIC_LIBS ON CACHE BOOL "Build all libraries statically. (This includes third-party libraries.)")
 set(BUILD_SAMPLE OFF CACHE BOOL "Build available samples")
 set(ENABLE_DATA_CHANNEL OFF CACHE BOOL "Enable support for data channel")
-set(OPEN_SRC_INCLUDE_DIRS "${OPEN_SRC_INCLUDE_DIRS}" "${KVS_LIBWEBSOCKETS_INCLUDE_DIRS} ${KVS_LIBSRTP_INCLUDE_DIRS}")
+set(OPEN_SRC_INCLUDE_DIRS "${OPEN_SRC_INCLUDE_DIRS}" "${KVS_LIBWSLAY_INCLUDE_DIRS} ${KVS_LIBSRTP_INCLUDE_DIRS} ${KVS_LIBLLHTTP_INCLUDE_DIRS}")
 
 add_subdirectory(lib/amazon-kinesis-video-streams-webrtc-sdk-c)
 
 set_property(TARGET kvsWebrtcSignalingClient APPEND PROPERTY LINK_LIBRARIES
         kvspicUtils
-        websockets
+        wslay
         srtp2
         ${mbedtls_lib}
-        kvsCommonLws)
+        kvsCommon
+        llhttp)
 set_property(TARGET kvsWebrtcSignalingClient APPEND PROPERTY INTERFACE_LINK_LIBRARIES
         kvspicUtils
-        websockets
+        wslay
         srtp2
         ${mbedtls_lib}
-        kvsCommonLws)
+        kvsCommon
+        llhttp)
 target_link_libraries(${COMPONENT_LIB} PUBLIC kvsWebrtcSignalingClient)
 
 set_property(TARGET kvsWebrtcClient APPEND PROPERTY LINK_LIBRARIES
