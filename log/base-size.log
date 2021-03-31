@@ -1,0 +1,21 @@
+ninja: no work to do.
+[1/1] cd /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build && /home/yc/.espressif/python_env/idf4.1_py3.6_env/bin/python /home/yc/_workspace/esp-idf/tools/idf_size.py /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build/webrtc_example.map
+Total sizes:
+ DRAM .data size:   17528 bytes
+ DRAM .bss  size:    6448 bytes
+Used static DRAM:   23976 bytes ( 156760 available, 13.3% used)
+Used static IRAM:  118514 bytes (  12558 available, 90.4% used)
+      Flash code:  977091 bytes
+    Flash rodata:  250004 bytes
+Total image size:~1363137 bytes (.bin may be padded larger)
+Adding "size"'s dependency "app" to list of commands with default set of options.
+Executing action: app
+Running ninja in directory /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build
+Executing "ninja app"...
+Executing action: size
+Running ninja in directory /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build
+Executing "ninja size"...
+
+App build complete. To flash, run this command:
+/home/yc/.espressif/python_env/idf4.1_py3.6_env/bin/python ../../esp-idf/components/esptool_py/esptool/esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash 0x10000 build/webrtc_example.bin
+or run 'idf.py -p (PORT) app-flash'
