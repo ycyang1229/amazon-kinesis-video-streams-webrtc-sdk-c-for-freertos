@@ -282,7 +282,11 @@ void app_main(void)
     setenv("AWS_SECRET_ACCESS_KEY", CONFIG_AWS_SECRET_ACCESS_KEY, 1);
     setenv("AWS_KVS_LOG_LEVEL", CONFIG_AWS_KVS_LOG_LEVEL, 1);
     setenv("AWS_DEFAULT_REGION", CONFIG_AWS_DEFAULT_REGION, 1);
-    
+
+    #include "esp_heap_caps.h"
+    heap_caps_print_heap_info(MALLOC_CAP_INTERNAL);
+    heap_caps_print_heap_info(MALLOC_CAP_SPIRAM);
+
     kvsWebRTCClientMaster();
 
     // All done, unmount partition and disable SDMMC or SPI peripheral

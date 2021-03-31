@@ -1,4 +1,5 @@
 #include "Samples.h"
+#include "esp_heap_caps.h"
 
 extern PSampleConfiguration gSampleConfiguration;
 
@@ -107,7 +108,8 @@ INT32 kvsWebRTCClientMaster(void)
     gSampleConfiguration = pSampleConfiguration;
 
     printf("[KVS Master] Channel %s set up done \n", SAMPLE_CHANNEL_NAME);
-
+    heap_caps_print_heap_info(MALLOC_CAP_INTERNAL);
+    heap_caps_print_heap_info(MALLOC_CAP_SPIRAM);
     // Checking for termination
     retStatus = sessionCleanupWait(pSampleConfiguration);
     if (retStatus != STATUS_SUCCESS) {
@@ -228,6 +230,11 @@ PVOID sendVideoPackets(PVOID args)
 
     while (!ATOMIC_LOAD_BOOL(&pSampleConfiguration->appTerminateFlag)) {
         fileIndex = fileIndex % NUMBER_OF_H264_FRAME_FILES + 1;
+        if(fileIndex % 100 == 0){
+            
+            heap_caps_print_heap_info(MALLOC_CAP_INTERNAL);
+            heap_caps_print_heap_info(MALLOC_CAP_SPIRAM);
+        }
         snprintf(filePath, MAX_PATH_LEN, "/sdcard/h264SampleFrames/frame-%04d.h264", fileIndex);
 
         retStatus = readFrameFromDisk(NULL, &frameSize, filePath);
