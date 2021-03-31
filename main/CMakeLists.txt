@@ -82,6 +82,7 @@ message("############################## start producer c #######################
 set(BUILD_DEPENDENCIES OFF CACHE BOOL "Whether or not to build depending libraries from source")
 set(USE_OPENSSL OFF CACHE BOOL "Use openssl as crypto library")
 set(USE_MBEDTLS ON CACHE BOOL "Use openssl as crypto library")
+set(BUILD_COMMON_ONLY OFF CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
 set(BUILD_COMMON_LWS ON CACHE BOOL "Whether or not to build ProducerC libwebsockets common library")
 set(BUILD_COMMON_CURL OFF CACHE BOOL "Whether or not to build ProducerC curl common library")
 set(BUILD_KVSPIC OFF CACHE BOOL "Whether or not to build the part of kvs pic")
