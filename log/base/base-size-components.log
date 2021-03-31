@@ -1,0 +1,74 @@
+ninja: no work to do.
+[1/1] cd /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build && /home/yc/.espressif/python_env/idf4.1_py3.6_env/bin/python /home/yc/_workspace/esp-idf/tools/idf_size.py --archives /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build/webrtc_example.map
+Total sizes:
+ DRAM .data size:   17528 bytes
+ DRAM .bss  size:    6448 bytes
+Used static DRAM:   23976 bytes ( 156760 available, 13.3% used)
+Used static IRAM:  118514 bytes (  12558 available, 90.4% used)
+      Flash code:  977091 bytes
+    Flash rodata:  250004 bytes
+Total image size:~1363137 bytes (.bin may be padded larger)
+Per-archive contributions to ELF file:
+            Archive File DRAM .data & .bss   IRAM Flash code & rodata   Total
+               liblwip.a         25      0      0     115304    21052  136381
+           libnet80211.a        976      0  11411      97541    23545  133473
+         libwebsockets.a        168    269    352      86426    35470  122685
+         libmbedcrypto.a         64     81     30      89510    22725  112410
+    libkvsWebrtcClient.a        236      4      0      90700    11048  101988
+                  libc.a       1678     58  15906      76002     6126   99770
+            libmbedtls.a         60    204      0      60938    23945   85147
+                 libpp.a       1317      0  22940      36132     4280   64669
+     libwpa_supplicant.a          8    808      0      46372     7710   54898
+              libesp32.a       2134    163  15409      15966    20753   54425
+              libsrtp2.a         92   1076      0      33380    12796   47344
+                libphy.a       1604    930   6487      30362        0   39383
+libkvsWebrtcSignalingCli        388     16      0      29037     3461   32902
+             libdriver.a        139    233   1251      21134     9853   32610
+           libfreertos.a       4148    776  17089          0     2251   24264
+              libfatfs.a          4    203      0      21163     2200   23570
+          libnvs_flash.a          0     24      0      14693     3039   17756
+                libsoc.a        184      4  10310       2980     4107   17585
+               libmain.a          0     84      0      10437     7003   17524
+        libkvspicUtils.a        603     16      0      14674     1750   17043
+           libmbedx509.a          0      0      0      12904     1542   14446
+              libsdmmc.a          0      0      0       8378     4037   12415
+          libspi_flash.a        782    294   6496       1456     1299   10327
+       libkvsCommonLws.a          0      0      0       9548      634   10182
+                libvfs.a        308     48      0       8152     1046    9554
+         libesp_common.a         16    294   1127       2046     6045    9528
+           libesp_wifi.a        412     72    645       5217     2607    8953
+          libesp_netif.a         12     25      0       5338     2030    7405
+                libgcc.a          8     13    104       5811      872    6808
+               libheap.a        313      4   3894       1331      580    6122
+          libesp_event.a          0      4      0       3093     1163    4260
+             libstdc++.a          8     20      0       2749     1082    3859
+            libpthread.a         16     16    277       2858      592    3759
+            libcoexist.a       1308     28      0       2276        0    3612
+             libnewlib.a        152    272    875       1587       87    2973
+              libefuse.a         36      4      0       1158      739    1937
+                liblog.a          8    272    282        880      168    1610
+        libesp_ringbuf.a          0      0    900          0      151    1051
+         libapp_update.a          1     12    208        198      477     896
+               libcore.a          0     29      0        607      228     864
+        libkvspicState.a          0      0      0        726       64     790
+ libbootloader_support.a          0      0      0        626        0     626
+                librtc.a          0      0    480          0        0     480
+                libhal.a          0      0    443          0       32     475
+      libtcpip_adapter.a          0     17      0        216        0     233
+             libxtensa.a          0      0    217          0        0     217
+                   (exe)          0      0      3          3       12      18
+                libcxx.a          0      0      0         11        0      11
+              libnosys.a          0      4      0          0        0       4
+            libesp_eth.a          0      0      0          0        0       0
+               libmesh.a          0      0      0          0        0       0
+Adding "size-components"'s dependency "app" to list of commands with default set of options.
+Executing action: app
+Running ninja in directory /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build
+Executing "ninja app"...
+Executing action: size-components
+Running ninja in directory /home/yc/_workspace/ycyang1229/amazon-kinesis-video-streams-webrtc-sdk-c-for-freertos/build
+Executing "ninja size-components"...
+
+App build complete. To flash, run this command:
+/home/yc/.espressif/python_env/idf4.1_py3.6_env/bin/python ../../esp-idf/components/esptool_py/esptool/esptool.py -p (PORT) -b 460800 --before default_reset --after hard_reset --chip esp32  write_flash 0x10000 build/webrtc_example.bin
+or run 'idf.py -p (PORT) app-flash'

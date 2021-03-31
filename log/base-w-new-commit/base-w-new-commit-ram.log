@@ -1,0 +1,457 @@
+ELF file SHA256: 121e388a30a9ffa3
+
+Backtrace: 0x4008db6d:0x3ffb05a0 0x4008f1ed:0x3ffb05e0 0x40086d42:0x3ffb0610 0x40086f82:0x3ffb0630 0x40086ec5:0x3ffb0660 0x400874ba:0x3ffb0680 0x400840
+
+Re-enable cpu cache.
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0x3 (SW_RESET),boot:0x1e (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:4
+load:0x3fff0034,len:7004
+load:0x40078000,len:13856
+load:0x40080400,len:4052
+entry 0x40080688
+I (28) boot: ESP-IDF v4.1-2-gb3f08d88d-dirty 2nd stage bootloader
+I (28) boot: compile time 21:24:46
+I (29) boot: chip revision: 1
+I (33) boot_comm: chip revision: 1, min. bootloader chip revision: 0
+I (40) boot.esp32: SPI Speed      : 40MHz
+I (45) boot.esp32: SPI Mode       : DIO
+I (49) boot.esp32: SPI Flash Size : 4MB
+I (54) boot: Enabling RNG early entropy source...
+I (59) boot: Partition Table:
+I (63) boot: ## Label            Usage          Type ST Offset   Length
+I (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (77) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (85) boot:  2 factory          factory app      00 00 00010000 00200000
+I (92) boot: End of partition table
+I (97) boot_comm: chip revision: 1, min. application chip revision: 0
+I (104) esp_image: segment 0: paddr=0x00010020 vaddr=0x3f400020 size=0x3d3e8 (250856) map
+I (221) esp_image: segment 1: paddr=0x0004d410 vaddr=0x3ffb0000 size=0x02c08 ( 11272) load
+I (227) esp_image: segment 2: paddr=0x00050020 vaddr=0x400d0020 size=0xeeed8 (978648) map
+I (651) esp_image: segment 3: paddr=0x0013ef00 vaddr=0x3ffb2c08 size=0x01878 (  6264) load
+I (655) esp_image: segment 4: paddr=0x00140780 vaddr=0x40080000 size=0x00404 (  1028) load
+I (659) esp_image: segment 5: paddr=0x00140b8c vaddr=0x40080404 size=0x1caf0 (117488) load
+I (741) boot: Loaded app from partition at offset 0x10000
+I (741) boot: Disabling RNG early entropy source...
+I (1738) wifi:wifi driver task: 3ffbd624, prio:23, stack:6656, core=0
+I (1758) wifi:wifi firmware version: 3ea4c76
+I (1758) wifi:config NVS flash: enabled
+I (1758) wifi:config nano formating: disabled
+I (1758) wifi:Init dynamic tx buffer num: 32
+I (1758) wifi:Init data frame dynamic rx buffer num: 32
+I (1768) wifi:Init management frame dynamic rx buffer num: 32
+I (1768) wifi:Init management short buffer num: 32
+I (1778) wifi:Init static tx buffer num: 16
+I (1778) wifi:Init static rx buffer size: 1600
+I (1778) wifi:Init static rx buffer num: 10
+I (1788) wifi:Init dynamic rx buffer num: 32
+I (1878) wifi:mode : sta (ac:67:b2:71:60:f8)
+I (2008) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (2008) wifi:state: init -> auth (b0)
+I (2018) wifi:state: auth -> assoc (0)
+I (2018) wifi:state: assoc -> run (10)
+I (2058) wifi:connected with SAN_HOME, aid = 4, channel 6, BW20, bssid = b4:fb:e4:c4:31:bf
+I (2058) wifi:security: WPA2-PSK, phy: bgn, rssi: -63
+I (2058) wifi:pm start, type: 1
+
+I (2148) wifi:AP's beacon interval = 102400 us, DTIM period = 2
+Name: 00000
+Type: SDHC/SDXC
+Speed: 20 MHz
+Size: 29736MB
+The available size of heap:4315228
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 32728 allocated 0 min_free 32212
+    largest_free_block 32728 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffae6e0 len 6432 free 56 allocated 6260 min_free 56
+    largest_free_block 56 alloc_blocks 20 free_blocks 1 total_blocks 21
+  At 0x3ffb5db0 len 172624 free 51612 allocated 120788 min_free 51280
+    largest_free_block 50560 alloc_blocks 45 free_blocks 3 total_blocks 48
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 113804 allocated 0 min_free 113804
+    largest_free_block 113804 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 225756 allocated 127048 min_free 224900 largest_free_block 113804
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 4134524 allocated 40068 min_free 4133152
+    largest_free_block 4133180 alloc_blocks 153 free_blocks 7 total_blocks 160
+  Totals:
+    free 4134524 allocated 40068 min_free 4133152 largest_free_block 4133180
+[KVS Master] Using trickleICE by default
+totalSize:4302116, spiSize:4121608, internalSize:225756, defaultSize:4302116 before pthread
+totalSize:4281208, spiSize:4121544, internalSize:204912, defaultSize:4281208 after pthread
+pthread_create(1/1)
+[KVS Master] Created signaling channel base-123
+[KVS Master] Finished setting audio and video handlers
+[KVS Master] Checked sample video frame availability....available
+[KVS Master] KVS WebRTC initialization completed successfully
+Creating Signaling Client Sync
+[2021/03/31 15:15:23:3292] N:  mem: platform fd map:   120 bytes
+[2021/03/31 15:15:23:3395] N: alloc_file: nvs: read cert.pem, 1425 bytes
+[2021/03/31 15:15:23:3439] N: Loading client CA for verification cert.pem
+totalSize:4247392, spiSize:4087756, internalSize:204884, defaultSize:4247392 before pthread
+totalSize:4226484, spiSize:4087692, internalSize:184040, defaultSize:4226484 after pthread
+pthread_create(2/2)
+State Machine - Current state: 0x0000000000000001, Next state: 0x0000000000000002
+State Machine - Current state: 0x0000000000000002, Next state: 0x0000000000000004
+Client append handshake header
+
+Connected with server response: 200
+Received client http
+Received client http read: 334 bytes
+Http client completed
+Client http closed
+State Machine - Current state: 0x0000000000000004, Next state: 0x0000000000000010
+Client append handshake header
+
+Connected with server response: 200
+Received client http
+Received client http read: 218 bytes
+Http client completed
+Client http closed
+State Machine - Current state: 0x0000000000000010, Next state: 0x0000000000000020
+Client append handshake header
+
+Connected with server response: 200
+Received client http
+Received client http read: 490 bytes
+Http client completed
+Client http closed
+State Machine - Current state: 0x0000000000000020, Next state: 0x0000000000000040
+[KVS Master] Signaling client created successfully
+Signaling Client Connect Sync
+State Machine - Current state: 0x0000000000000040, Next state: 0x0000000000000080
+totalSize:4194040, spiSize:4055248, internalSize:184040, defaultSize:4194040 before pthread
+totalSize:4193616, spiSize:4055184, internalSize:163196, defaultSize:4193616 after pthread
+pthread_create(3/3)
+Connection established
+State Machine - Current state: 0x0000000000000080, Next state: 0x0000000000000100
+[KVS Master] Signaling client connection to socket established
+[KVS Master] Channel base-123 set up done 
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 12244 allocated 20480 min_free 12244
+    largest_free_block 12244 alloc_blocks 1 free_blocks 1 total_blocks 2
+  At 0x3ffae6e0 len 6432 free 28 allocated 6280 min_free 28
+    largest_free_block 28 alloc_blocks 22 free_blocks 1 total_blocks 23
+  At 0x3ffb5db0 len 172624 free 9564 allocated 162816 min_free 9440
+    largest_free_block 9232 alloc_blocks 50 free_blocks 3 total_blocks 53
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 113804 allocated 0 min_free 113804
+    largest_free_block 113804 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 163196 allocated 189576 min_free 163064 largest_free_block 113804
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 4015880 allocated 157612 min_free 3991436
+    largest_free_block 3995652 alloc_blocks 420 free_blocks 15 total_blocks 435
+  Totals:
+    free 4015880 allocated 157612 min_free 3991436 largest_free_block 3995652
+Client receive 322
+totalSize:4135316, spiSize:3996884, internalSize:163196, defaultSize:4135316 before pthread
+totalSize:4114408, spiSize:3996820, internalSize:142352, defaultSize:4114408 after pthread
+pthread_create(4/4)
+unhandled num in q: 0
+handling wss
+queue the ice candidates.
+Client is writable
+Client receive 322
+unhandled num in q: 0
+handling wss
+queue the ice candidates.
+operation returned status code: 0x00000001
+operation returned status code: 0x00000001
+Client is writable
+Client receive 4096
+Client receive 3130
+unhandled num in q: 0
+handling wss
+offer.
+Signaling Client Get ICE Config Info Count
+Signaling Client Get ICE Config Info
+Client is writable
+Client receive 314
+unhandled num in q: 0
+totalSize:3639660, spiSize:3522072, internalSize:142352, defaultSize:3639660 before pthread
+totalSize:3618840, spiSize:3521488, internalSize:121508, defaultSize:3618232 after pthread
+Client is writable
+pthread_create(5/5)
+Client receive 314
+unhandled num in q: 1
+Client is writable
+Client receive 326
+unhandled num in q: 2
+Client is writable
+Client receive 326
+unhandled num in q: 3
+Client is writable
+Client receive 326
+unhandled num in q: 4
+Client is writable
+Client receive 326
+unhandled num in q: 5
+Client is writable
+Client receive 322
+unhandled num in q: 6
+Client receive 322
+unhandled num in q: 7
+Client is writable
+Client receive 322
+unhandled num in q: 8
+Client is writable
+Client receive 322
+unhandled num in q: 9
+Client is writable
+Client receive 322
+unhandled num in q: 10
+Client is writable
+Client receive 322
+unhandled num in q: 11
+Client is writable
+Client receive 322
+unhandled num in q: 12
+Client is writable
+Client receive 322
+unhandled num in q: 13
+Client is writable
+
+        iceLocalCandidateGatheringTimeout: 0 ms
+        iceConnectionCheckTimeout: 10000 ms
+        iceCandidateNominationTimeout: 0 ms
+        iceConnectionCheckPollingInterval: 10000 ms
+Acquried IP: 192.168.193.160
+State Machine - Current state: 0x0000000000000001, Next state: 0x0000000000000002
+ice candidate pair count 0
+Ice agent state changed from ICE_AGENT_STATE_NONE to ICE_AGENT_STATE_CHECK_CONNECTION.
+New connection state 2
+setsockopt() failed with errno NO_SIGNAL failed
+TurnConnection state changed from TURN_STATE_NEW to TURN_STATE_CHECK_SOCKET_CONNECTION
+TurnConnection state changed from TURN_STATE_CHECK_SOCKET_CONNECTION to TURN_STATE_GET_CREDENTIALS
+totalSize:2444984, spiSize:2348240, internalSize:121508, defaultSize:2444984 before pthread
+totalSize:2424076, spiSize:2348176, internalSize:100664, defaultSize:2424076 after pthread
+TurnConnection state changed from TURN_STATE_NEW to TURN_STATE_CHECK_SOCKET_CONNECTION
+pthread_create(6/6)
+New local ice candidate discovered. Id: 8rqmKqTwD. Ip: 192.168.193.160:59926. Type: host. Protocol: UDP. priority: 2130706431
+Signaling Client Sending Message Sync
+Client is writable
+Signaling Client Sending Message Sync
+tcp_connect: can only connect from state CLOSED
+TurnConnection state changed from TURN_STATE_CHECK_SOCKET_CONNECTION to TURN_STATE_GET_CREDENTIALS
+New local ice candidate discovered. Id: FzlXtFPeq. Ip: 36.224.98.130:59927. Type: srflx. Protocol: UDP. priority: 1694498815
+Client receive 0
+Client is writable
+Signaling Client Sending Message Sync
+time taken to send answer 1450 ms
+totalSize:2345792, spiSize:2269892, internalSize:100664, defaultSize:2345792 before pthread
+totalSize:2324884, spiSize:2269828, internalSize:79820, defaultSize:2324884 after pthread
+pthread_create(7/7)
+operation returned status code: 0x5a000003
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: RRZg284PE. Ip: 36.224.98.130:63671. Type: srflx. Protocol: UDP. priority: 1677729535
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: mohZkF4D9. Ip: 36.224.98.130:59615. Type: srflx. Protocol: UDP. priority: 1677729535
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: M32NdZvJp. Ip: 34.210.82.225:63010. Type: relay. Protocol: NA. priority: 33563647
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: 6cnA+XRP+. Ip: 34.210.82.225:57240. Type: relay. Protocol: NA. priority: 33563647
+mbedtls_ssl_read failed with X509 - Certificate verification failed, e.g. CRL, CA or signature check failed
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: arE675OTa. Ip: 34.221.144.32:57262. Type: relay. Protocol: NA. priority: 33562879
+Warning: reading socket data failed with 0x0000000c
+Warning: reading socket data failed with 0x0000000c
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: cTT40BQZU. Ip: 34.221.144.32:55435. Type: relay. Protocol: NA. priority: 33562879
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: fli/HSw1N. Ip: 34.210.82.225:57751. Type: relay. Protocol: NA. priority: 8959
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: Ooh6oHkui. Ip: 34.210.82.225:64878. Type: relay. Protocol: NA. priority: 8703
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: +PqtqZ6wp. Ip: 34.210.82.225:57750. Type: relay. Protocol: NA. priority: 8959
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: mNNIIr+IK. Ip: 34.210.82.225:64769. Type: relay. Protocol: NA. priority: 8703
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: Lc6ZPolwd. Ip: 34.221.144.32:63343. Type: relay. Protocol: NA. priority: 8191
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: ifchgv/wV. Ip: 34.221.144.32:56290. Type: relay. Protocol: NA. priority: 7935
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: bnka1XAu5. Ip: 34.221.144.32:55209. Type: relay. Protocol: NA. priority: 7935
+handling wss
+handle the ice candidates.
+New remote ice candidate discovered. Id: ay7uv77TP. Ip: 34.221.144.32:60735. Type: relay. Protocol: NA. priority: 8191
+Close socket 60
+recvfrom() failed with errno Connection reset by peer for socket 60
+Client receive 0
+New remote peer reflexive candidate found
+New remote ice candidate discovered. Id: jF6f4quOe. Ip: 192.168.193.101:63671. Type: prflx. Protocol: UDP. priority: 1845501695
+Client is writable
+received candidate with USE_CANDIDATE flag, local candidate type srflx.
+received candidate with USE_CANDIDATE flag, local candidate type host.
+TurnConnection state changed from TURN_STATE_GET_CREDENTIALS to TURN_STATE_ALLOCATION
+Warning: Failed to send data. Socket closed already
+operation returned status code: 0x58000022
+operation returned status code: 0x58000022
+TurnConnection socket 60 closed unexpectedly
+TurnConnection in TURN_STATE_FAILED due to 0x58000022. Aborting TurnConnection
+TurnConnection state changed from TURN_STATE_FAILED to TURN_STATE_CLEAN_UP
+TurnConnection state changed from TURN_STATE_CLEAN_UP to TURN_STATE_FAILED
+Ice candidate pair 8rqmKqTwD_jF6f4quOe is connected. Round trip time: 57ms
+State Machine - Current state: 0x0000000000000002, Next state: 0x0000000000000004
+Ice agent state changed from ICE_AGENT_STATE_CHECK_CONNECTION to ICE_AGENT_STATE_CONNECTED.
+New connection state 3
+ICE local candidate Stats requested at 16172037555156610
+Local Candidate IP Address: 192.168.193.160
+Local Candidate type: host
+Local Candidate port: 59926
+Local Candidate priority: 2130706431
+Local Candidate transport protocol: transport=udp
+Local Candidate relay protocol: N/A
+Local Candidate Ice server source: N/A
+ICE remote candidate Stats requested at 16172037555416510
+Remote Candidate IP Address: 192.168.193.101
+Remote Candidate type: host
+Remote Candidate port: 63671
+Remote Candidate priority: 1845501695
+Remote Candidate transport protocol: transport=udp
+State Machine - Current state: 0x0000000000000004, Next state: 0x0000000000000008
+Ice agent state changed from ICE_AGENT_STATE_CONNECTED to ICE_AGENT_STATE_NOMINATING.
+Client receive 0
+TurnConnection in TURN_STATE_FAILED due to 0x58000022. Aborting TurnConnection
+TURN Allocation succeeded. Life time: 600 seconds. Allocation expiration epoch 161720435562544
+local candidate ip address does not match with xor mapped address in binding response
+New local ice candidate discovered. Id: FzlXtFPeq. Ip: 192.168.193.160:59927. Type: prflx. Protocol: UDP. priority: 1694498815
+New local ice candidate discovered. Id: PyerbFgD2. Ip: 52.39.186.247:59716. Type: relay. Protocol: UDP. priority: 16777215
+Signaling Client Sending Message Sync
+Client is writable
+operation returned status code: 0x41100004
+State Machine - Current state: 0x0000000000000008, Next state: 0x0000000000000010
+Selected pair 8rqmKqTwD_jF6f4quOe, local candidate type: host. Round trip time 57 ms
+Freeing Turn allocations that are not selected. Total turn allocation count 2
+Ice agent state changed from ICE_AGENT_STATE_NOMINATING to ICE_AGENT_STATE_READY.
+Client receive 0
+Relay address received: 52.39.186.247, port: 59716
+TurnConnection state changed from TURN_STATE_ALLOCATION to TURN_STATE_CLEAN_UP
+Candidate gathering completed.
+ice candidate gathering finished
+DTLS init completed. Time taken 2470 ms
+TURN Allocation freed.
+Close socket 59
+TurnConnection state changed from TURN_STATE_CLEAN_UP to TURN_STATE_NEW
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 12244 allocated 20480 min_free 11728
+    largest_free_block 12244 alloc_blocks 1 free_blocks 1 total_blocks 2
+  At 0x3ffae6e0 len 6432 free 28 allocated 6280 min_free 28
+    largest_free_block 28 alloc_blocks 22 free_blocks 1 total_blocks 23
+  At 0x3ffb5db0 len 172624 free 8124 allocated 164240 min_free 7876
+    largest_free_block 7792 alloc_blocks 54 free_blocks 3 total_blocks 57
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 31868 allocated 81920 min_free 31868
+    largest_free_block 31868 alloc_blocks 4 free_blocks 1 total_blocks 5
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 79820 allocated 272920 min_free 79048 largest_free_block 31868
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 2761916 allocated 1406316 min_free 1908264
+    largest_free_block 2261408 alloc_blocks 1628 free_blocks 122 total_blocks 1750
+  Totals:
+    free 2761916 allocated 1406316 min_free 1908264 largest_free_block 2261408
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 12244 allocated 20480 min_free 11728
+    largest_free_block 12244 alloc_blocks 1 free_blocks 1 total_blocks 2
+  At 0x3ffae6e0 len 6432 free 28 allocated 6280 min_free 28
+    largest_free_block 28 alloc_blocks 22 free_blocks 1 total_blocks 23
+  At 0x3ffb5db0 len 172624 free 8124 allocated 164240 min_free 7876
+    largest_free_block 7792 alloc_blocks 54 free_blocks 3 total_blocks 57
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 31868 allocated 81920 min_free 31868
+    largest_free_block 31868 alloc_blocks 4 free_blocks 1 total_blocks 5
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 79820 allocated 272920 min_free 79048 largest_free_block 31868
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 2586860 allocated 1576836 min_free 1908264
+    largest_free_block 2261408 alloc_blocks 2666 free_blocks 218 total_blocks 2884
+  Totals:
+    free 2586860 allocated 1576836 min_free 1908264 largest_free_block 2261408
+Current duration: 62 seconds
+Selected local candidate ID: 8rqmKqTwD
+Selected remote candidate ID: jF6f4quOe
+Ice Candidate Pair state: 3
+Nomination state: nominated
+Packet send rate: 22.516129 pkts/sec
+Packet receive rate: 7.112903 pkts/sec
+Outgoing bit rate: 36566.064516 bps
+Incoming bit rate: 3729.806452 bps
+Packet discard rate: 0.000000 pkts/sec
+Current STUN request round trip time: 0.057959 sec
+Number of STUN responses received: 1
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 12244 allocated 20480 min_free 11728
+    largest_free_block 12244 alloc_blocks 1 free_blocks 1 total_blocks 2
+  At 0x3ffae6e0 len 6432 free 28 allocated 6280 min_free 28
+    largest_free_block 28 alloc_blocks 22 free_blocks 1 total_blocks 23
+  At 0x3ffb5db0 len 172624 free 8124 allocated 164240 min_free 7876
+    largest_free_block 7792 alloc_blocks 54 free_blocks 3 total_blocks 57
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 31868 allocated 81920 min_free 31868
+    largest_free_block 31868 alloc_blocks 4 free_blocks 1 total_blocks 5
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 79820 allocated 272920 min_free 79048 largest_free_block 31868
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 2409220 allocated 1749780 min_free 1908264
+    largest_free_block 2261408 alloc_blocks 3716 free_blocks 342 total_blocks 4058
+  Totals:
+    free 2409304 allocated 1749696 min_free 1908264 largest_free_block 2261408
+Heap summary for capabilities 0x00000800:
+  At 0x3ffbd7c0 len 32767 free 12244 allocated 20480 min_free 11728
+    largest_free_block 12244 alloc_blocks 1 free_blocks 1 total_blocks 2
+  At 0x3ffae6e0 len 6432 free 28 allocated 6280 min_free 28
+    largest_free_block 28 alloc_blocks 22 free_blocks 1 total_blocks 23
+  At 0x3ffb5db0 len 172624 free 8124 allocated 164240 min_free 7876
+    largest_free_block 7792 alloc_blocks 54 free_blocks 3 total_blocks 57
+  At 0x3ffe0440 len 15072 free 15036 allocated 0 min_free 15036
+    largest_free_block 15036 alloc_blocks 0 free_blocks 1 total_blocks 1
+  At 0x3ffe4350 len 113840 free 31868 allocated 81920 min_free 31868
+    largest_free_block 31868 alloc_blocks 4 free_blocks 1 total_blocks 5
+  At 0x4009cef4 len 12556 free 12520 allocated 0 min_free 12512
+    largest_free_block 12520 alloc_blocks 0 free_blocks 1 total_blocks 1
+  Totals:
+    free 79820 allocated 272920 min_free 79048 largest_free_block 31868
+Heap summary for capabilities 0x00000400:
+  At 0x3f804a5c len 4175267 free 2230640 allocated 1923668 min_free 1908264
+    largest_free_block 2223724 alloc_blocks 4762 free_blocks 469 total_blocks 5231
+  Totals:
+    free 2230640 allocated 1923668 min_free 1908264 largest_free_block 2223724
+Detected DTLS close_notify alert
+New connection state 6
+Freeing streaming session with peer id: aws-mac 
+Close socket 58
+Close socket 57
