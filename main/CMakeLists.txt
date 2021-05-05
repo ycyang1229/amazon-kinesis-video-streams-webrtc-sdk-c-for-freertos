@@ -89,6 +89,17 @@ if(ENABLE_STREAMING)
         set(KVS_LIBSRTP_INCLUDE_DIRS "${LIB_SOURCE_DIR}/libsrtp/include")
 endif()
 
+if(ENABLE_DATA_CHANNEL)
+        message("############################## start sctp ##############################")
+        add_definitions(-DSCTP_USE_LWIP)
+        add_definitions(-DSCTP_USE_RTOS)
+        add_subdirectory(lib/usrsctp)
+        set_property(TARGET usrsctp APPEND PROPERTY LINK_LIBRARIES ${mbedtls_lib} ${esp_common_lib} ${pthread_lib})
+        set_property(TARGET usrsctp APPEND PROPERTY INTERFACE_LINK_LIBRARIES ${mbedtls_lib} ${esp_common_lib} ${pthread_lib})
+        target_link_libraries(${COMPONENT_LIB} PUBLIC usrsctp)
+        set(KVS_USRSCTP_INCLUDE_DIRS "${LIB_SOURCE_DIR}/usrsctp/usrsctplib")
+endif()
+
 message("############################## start pic ##############################")
 add_subdirectory(lib/amazon-kinesis-video-streams-pic)
 set_property(TARGET kvspicState APPEND PROPERTY LINK_LIBRARIES ${esp_common_lib} ${pthread_lib})
@@ -140,6 +151,9 @@ set_property(TARGET kvsWebrtcClient APPEND PROPERTY LINK_LIBRARIES
 if(ENABLE_STREAMING)
         set_property(TARGET kvsWebrtcClient APPEND PROPERTY LINK_LIBRARIES srtp2)
 endif()
+if(ENABLE_DATA_CHANNEL)
+        set_property(TARGET kvsWebrtcClient APPEND PROPERTY LINK_LIBRARIES usrsctp)
+endif()
 
 set_property(TARGET kvsWebrtcClient APPEND PROPERTY INTERFACE_LINK_LIBRARIES
         kvspicUtils
@@ -150,5 +164,7 @@ set_property(TARGET kvsWebrtcClient APPEND PROPERTY INTERFACE_LINK_LIBRARIES
 if(ENABLE_STREAMING)
         set_property(TARGET kvsWebrtcClient APPEND PROPERTY INTERFACE_LINK_LIBRARIES srtp2)
 endif()
-
+if(ENABLE_DATA_CHANNEL)
+        set_property(TARGET kvsWebrtcClient APPEND PROPERTY INTERFACE_LINK_LIBRARIES usrsctp)
+endif()
 target_link_libraries(${COMPONENT_LIB} PUBLIC kvsWebrtcClient)
